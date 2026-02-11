@@ -1,0 +1,19 @@
+[package]
+name = "beams"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "beams"
+path = "src/beams.rs"
+
+# OPTIMIZATION: Release profile settings
+[profile.release]
+opt-level = 3           # Maximum optimizations
+lto = "thin"            # Link-time optimization (thin is faster than "fat")
+codegen-units = 1       # Better optimization (slower compile, faster runtime)
+strip = true            # Remove debug symbols - smaller binary
+panic = 'abort'         # Smaller binary, no unwinding
+
+[dependencies]
+tokio = { version = "1.42", features = ["full"] }
