@@ -20,7 +20,7 @@ Find:
 
 ```bash
 cargo build --release
-cp target/release/beams ~/.local/bin/
+install -m 755 target/release/beams $(HOME)/.local/bin/
 ```
 
 ## Usage
